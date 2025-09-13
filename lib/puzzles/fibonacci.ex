@@ -26,10 +26,7 @@ defmodule Grimoire.Puzzles.Fibonacci do
   def fib(0), do: 0
   def fib(1), do: 1
   def fib(n) when n < 0, do: raise(ArgumentError, "negative numbers not supported")
-
-  def fib(n) do
-    fib_iter(n, 0, 1)
-  end
+  def fib(n), do: fib_iter(n, 0, 1)
 
   # Tail-recursive helper function
   defp fib_iter(0, prev, _curr), do: prev
