@@ -30,7 +30,7 @@ defmodule Grimoire.Puzzles.Fibonacci do
   def fib(n) do
     # Start with fib(0)=0, fib(1)=1 and iterate from 2 to n
     {_, result} = Enum.reduce(2..n, {0, 1}, fn _, {prev, curr} ->
-      # Each step: prev becomes curr, curr becomes prev + curr
+      # Return next pair: current value and sum of both
       {curr, prev + curr}
     end)
     result
