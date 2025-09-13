@@ -28,11 +28,10 @@ defmodule Grimoire.Puzzles.Fibonacci do
   def fib(n) when n < 0, do: raise(ArgumentError, "negative numbers not supported")
 
   def fib(n) do
-    # Start with fib(0)=0, fib(1)=1 and iterate from 2 to n
-    {_, result} = Enum.reduce(2..n, {0, 1}, fn _, {prev, curr} ->
-      # Return next pair: current value and sum of both
-      {curr, prev + curr}
-    end)
-    result
+    fib_iter(n, 0, 1)
   end
+
+  # Tail-recursive helper function
+  defp fib_iter(0, prev, _curr), do: prev
+  defp fib_iter(n, prev, curr), do: fib_iter(n - 1, curr, prev + curr)
 end
